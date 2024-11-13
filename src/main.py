@@ -7,9 +7,9 @@ pygame.display.set_caption('Shooter Shooter')
 running = True
 
 # Surface
-surf = pygame.surface((100, 200))
+surf = pygame.Surface((50, 50))
 surf.fill('orange')
-x = 100
+x = 650
 
 #Imported images
 # player_surf = pygame.image.load(join('images', 'filename.png')).convert_alpha()
@@ -22,6 +22,6 @@ while running:
     display_surface.fill('seagreen1')
     # display_surface.blit((width(Increase = right), height(increase = down)))
     # x += 0.1
-    display_surface.blit(surf, (x, 150))
+    display_surface.blit(surf, (x, 550))
     pygame.display.update()
 pygame.quit()
