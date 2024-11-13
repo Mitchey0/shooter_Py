@@ -7,8 +7,8 @@ from setting import *
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups):
         super().__init__(groups)
-        self.image = pygame.image.load(join('images', 'player_backward.png')).convert_alpha
-        self.rect = self.image.get_frect(center = pos)
+        self.image = pygame.image.load(join('src', 'images', 'player_backward.png')).convert_alpha
+        self.rect = self.image.get__frect(center = pos)
 
         self.direction = pygame.Vector2()
         self.speed = 500
