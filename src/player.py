@@ -10,11 +10,18 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.image.load(join('images', 'player_backward.png')).convert_alpha
         self.rect = self.image.get_frect(center = pos)
 
-    def user_input():
-        pass
+        self.direction = pygame.Vector2()
+        self.speed = 500
 
-    def move():
-        pass
+    def user_input(self):
+        keys = pygame.key.get_pressed()
+        self.direction.x = int(keys[pygame.K_d]) - int(keys[pygame.K_a])
+        self.direction.y = int(keys[pygame.K_s]) - int(keys[pygame.K_w])
+        self.direction = self.direction.normalize() if self.direction else self.direction
 
-    def update():
-        pass
+    def move(self, dt):
+        self.rect.center += self.direction * self.speed * dt
+
+    def update(self):
+        self.user_input()
+        self.move()
