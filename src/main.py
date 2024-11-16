@@ -35,12 +35,12 @@ class Enemy:
         self.rect = pygame.Rect(random.radint(0, window_width - enemy_size, 0, enemy_size, enemy_size))
 
     def move(self):
-        self.rect.y += enemy_speed #speed
+        self.rect.y += enemy_speed
 
 def main():
     clock = pygame.time.Clock()
     player = Player()
-    bullet = []
+    bullets = []
     enemies = []
     score = 0
     running = True
@@ -57,7 +57,29 @@ def main():
         dy = keys[pygame.K_s] - keys[pygame.K_w]
         player.move(dx, dy)
 
-        display_surface.fill('seagreen1')
+        if keys[pygame.K_SPACE]:
+            bullet.append(Bullet(player.rect.centerx, player.rect.top))
+        
+        for bullet in Bullet[:]:
+            bullet.move()
+            if bullet.rect.bottom < 0:
+                bullet.remove(bullet)
+        
+        for enemy in enemies[:]:
+            enemy.move()
+            if enemy.rect.top > window_height:
+                enemies.remove(enemy)
+                score += 1 # Increment sc ore for each enemy that goes off screen
+
+        for bullet in bullets[:]:
+            for enemy in enemies[:]:
+                if bullet.rect.colliderect(enemy.rect):
+                    bullets.remove(bullet)
+                    enemies.remove(enemy)
+                    score += 5 # Increment score to destroy enemies
+
+        display_surface.fill('midnightblue')
+        
         # display_surface.blit((width(Increase = right), height(increase = down)))
         # self.display_surface.blit(player.surf, (x, 550))
         pygame.display.update()
