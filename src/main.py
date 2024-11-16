@@ -79,10 +79,16 @@ def main():
                     score += 5 # Increment score to destroy enemies
 
         display_surface.fill('midnightblue')
+        for bullet in bullets:
+            pygame.draw.rect(display_surface, 'mediumvioletred', bullet.rect)
+        for enemy in enemies:
+            pygame.draw.rect(display_surface, 'mediumspringgreen')
         
-        # display_surface.blit((width(Increase = right), height(increase = down)))
-        # self.display_surface.blit(player.surf, (x, 550))
+        font = pygame.font.Font(None, 36)
+        score_text = font.render(f'Score: {score}', True, 'gray100')
+        display_surface.blit(score_text, (10, 10))
         pygame.display.update()
+        clock.tick(30) 
 
     pygame.quit()
 
