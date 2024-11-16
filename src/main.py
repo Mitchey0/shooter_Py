@@ -20,8 +20,8 @@ class Player():
 
     def move(self, dx, dy):
         self.rect.x += dx * player_speed
-        self.rect.y += dx * player_speed
-        Player.rect.clamp_ip(display_surface.get_rect()) # Code for keeping within screen was here
+        self.rect.y += dy * player_speed
+        self.rect.clamp_ip(display_surface.get_rect()) # Code for keeping within screen was here
 
 class Bullet:
     def __init__(self, x, y):
