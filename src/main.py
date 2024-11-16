@@ -12,7 +12,7 @@ player_speed = 10
 bullet_size = 5
 bullet_speed = 15
 enemy_size = 50
-enemy_size = 4
+enemy_speed = 4
 
 class Player():
     def __init__(self):
@@ -29,6 +29,13 @@ class Bullet:
     
     def move(self):
         self.rect.y -= bullet_size
+
+class Enemy:
+    def __init__(self):
+        self.rect = pygame.Rect(random.radint(0, window_width - enemy_size, 0, enemy_size, enemy_size))
+
+    def move(self):
+        self.rect.y += enemy_speed #speed
 
 def main():
     clock = pygame.time.Clock()
