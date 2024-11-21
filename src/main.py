@@ -63,8 +63,8 @@ def main():
         player.move(dx, dy)
 
         if keys[pygame.K_SPACE]:
-            bullets.append(Bullet(player.rect.centerx, player.rect.top)) # Reoccuring issue
-            # bullet_sound.play()
+            bullets.append(Bullet(player.rect.centerx, player.rect.top))
+            # bullet_sound.play()??? must look into
         
         for bullet in bullets[:]:
             bullet.move()
@@ -78,13 +78,13 @@ def main():
             enemy.move()
             if enemy.rect.top > window_height:
                 enemies.remove(enemy)
-                score += 1 # Increment sc ore for each enemy that goes off screen
+                score += -3 # Increment sc ore for each enemy that goes off screen
 
         for bullet in bullets[:]:
             for enemy in enemies[:]:
                 if bullet.rect.colliderect(enemy.rect):
-                    # direct_hit = mixer.Sound('src/sound/explosion.mp3')
-                    # direct_hit.play()
+                    direct_hit = mixer.Sound('src/sound/retrohurt.mp3')
+                    direct_hit.play()
                     bullets.remove(bullet)
                     enemies.remove(enemy)
                     score += 5 # Increment score to destroy enemies
