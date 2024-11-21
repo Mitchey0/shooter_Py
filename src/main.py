@@ -8,11 +8,11 @@ pygame.display.set_caption('Shooter Shooter')
 
 # Settings
 player_size = 50
-player_speed = 10
+player_speed = 5
 bullet_size = 5
-bullet_speed = 15
+bullet_speed = 10
 enemy_size = 50
-enemy_speed = 4
+enemy_speed = 2
 
 class Player():
     def __init__(self):
@@ -58,12 +58,12 @@ def main():
         player.move(dx, dy)
 
         if keys[pygame.K_SPACE]:
-            bullet.append(Bullet(player.rect.centerx, player.rect.top))
+            bullets.append(Bullet(player.rect.centerx, player.rect.top)) # Reoccuring issue
         
         for bullet in bullets[:]:
             bullet.move()
             if bullet.rect.bottom < 0:
-                bullet.remove(bullet)
+                bullets.remove(bullet)
 
         if random.randint(1, 30) == 1:
             enemies.append(Enemy())
