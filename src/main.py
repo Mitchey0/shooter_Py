@@ -28,11 +28,11 @@ class Bullet:
         self.rect = pygame.Rect(x, y, bullet_size, bullet_size)
     
     def move(self):
-        self.rect.y -= bullet_size
+        self.rect.y -= bullet_speed
 
 class Enemy:
     def __init__(self):
-        self.rect = pygame.Rect(random.radint(0, window_width - enemy_size, 0, enemy_size, enemy_size))
+        self.rect = pygame.Rect(random.randint(0, window_width - enemy_size), 0, enemy_size, enemy_size)
 
     def move(self):
         self.rect.y += enemy_speed
@@ -60,10 +60,13 @@ def main():
         if keys[pygame.K_SPACE]:
             bullet.append(Bullet(player.rect.centerx, player.rect.top))
         
-        for bullet in Bullet[:]:
+        for bullet in bullets[:]:
             bullet.move()
             if bullet.rect.bottom < 0:
                 bullet.remove(bullet)
+
+        if random.randint(1, 30) == 1:
+            enemies.append(Enemy())
         
         for enemy in enemies[:]:
             enemy.move()
@@ -79,10 +82,11 @@ def main():
                     score += 5 # Increment score to destroy enemies
 
         display_surface.fill('midnightblue')
+        pygame.draw.rect(display_surface, 'darkorange', player.rect)
         for bullet in bullets:
             pygame.draw.rect(display_surface, 'mediumvioletred', bullet.rect)
         for enemy in enemies:
-            pygame.draw.rect(display_surface, 'mediumspringgreen')
+            pygame.draw.rect(display_surface, 'mediumspringgreen', enemy.rect)
         
         font = pygame.font.Font(None, 36)
         score_text = font.render(f'Score: {score}', True, 'gray100')
