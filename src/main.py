@@ -1,4 +1,5 @@
 import pygame
+from pygame import mixer
 import random
 
 pygame.init()
@@ -6,13 +7,17 @@ window_width, window_height = 800, 600
 display_surface = pygame.display.set_mode((window_width, window_height))
 pygame.display.set_caption('Shooter Shooter')
 
+
 # Settings
+mixer.music.load("src/sound/backgroundmusic.mp3")
+mixer.music.play(-1)
+
 player_size = 50
-player_speed = 5
+player_speed = 8
 bullet_size = 5
 bullet_speed = 10
 enemy_size = 50
-enemy_speed = 2
+enemy_speed = 4
 
 class Player():
     def __init__(self):
@@ -59,6 +64,7 @@ def main():
 
         if keys[pygame.K_SPACE]:
             bullets.append(Bullet(player.rect.centerx, player.rect.top)) # Reoccuring issue
+            # bullet_sound.play()
         
         for bullet in bullets[:]:
             bullet.move()
@@ -77,6 +83,8 @@ def main():
         for bullet in bullets[:]:
             for enemy in enemies[:]:
                 if bullet.rect.colliderect(enemy.rect):
+                    # direct_hit = mixer.Sound('src/sound/explosion.mp3')
+                    # direct_hit.play()
                     bullets.remove(bullet)
                     enemies.remove(enemy)
                     score += 5 # Increment score to destroy enemies
