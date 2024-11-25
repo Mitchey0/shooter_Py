@@ -7,7 +7,6 @@ window_width, window_height = 800, 600
 display_surface = pygame.display.set_mode((window_width, window_height))
 pygame.display.set_caption('Shooter Shooter')
 
-
 # Settings
 mixer.music.load("src/sound/backgroundmusic.mp3")
 pygame.mixer.music.set_volume(0.3)
@@ -19,6 +18,9 @@ bullet_size = 5
 bullet_speed = 10
 enemy_size = 50
 enemy_speed = 4
+
+#Create a class for button :D
+#load images for buttons
 
 class Player():
     def __init__(self):
@@ -53,6 +55,9 @@ def main():
 
     while running:
         dt = clock.tick()
+
+        # Add 'if' loops for each button here
+        # Buttons: 'Play' 'Credit' 'Quit'
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
