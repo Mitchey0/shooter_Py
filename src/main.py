@@ -10,6 +10,7 @@ pygame.display.set_caption('Shooter Shooter')
 
 # Settings
 mixer.music.load("src/sound/backgroundmusic.mp3")
+pygame.mixer.music.set_volume(0.3)
 mixer.music.play(-1)
 
 player_size = 50
@@ -64,7 +65,9 @@ def main():
 
         if keys[pygame.K_SPACE]:
             bullets.append(Bullet(player.rect.centerx, player.rect.top))
-            # bullet_sound.play()??? must look into
+            bullet_sound = mixer.Sound('src/sound/pewpew.mp3')
+            bullet_sound.play()
+            #bullet_sound.set_volume(0.5)
         
         for bullet in bullets[:]:
             bullet.move()
