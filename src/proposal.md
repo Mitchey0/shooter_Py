@@ -16,16 +16,16 @@ I want my project to focus on the use of pygame and create a playable shooter ga
 	- Upgradable weapons/powers-up that can help aid the player's survival
 
 ## Challenges
-- Implementing sound and/or music for the game (background music, sfx of shooting, jumps, etc.)
+- Implementing sound and/or music for the game (background music, sfx of shooting, destryed enemies, etc.)
 - Load images into pygame 
 - Implementing shooting mechanic and destroyable enemies
 
 ## Outcomes
 Ideal Outcome:
-- A workable game that the player can play and able to reach the end.
+- A workable shooting game that the player can play and able to reach the end, with custom designs and a scoreboard. 
 
 Minimal Viable Outcome:
-- I hope to achieve mouse-point shooters that'll be able to shoot at enemies, with the timer counting down. 
+- I hope to achieve a shooters with basic game mechanics! It'll have a movable player, spawning enemies, and a score counter.
 
 ## Milestones
 
@@ -34,8 +34,8 @@ Minimal Viable Outcome:
   2. Basic set up for pygame(display, loop, etc.)
 
 - Week 2
-  1. Mouse-pointer mechanic
-  2. Destroyable enemies
+  1. Player shooter game mechanics
+  2. Destroyable enemies and score display
 
 - Week 3 (Final)
   1. Timer count down
