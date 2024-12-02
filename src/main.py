@@ -5,11 +5,12 @@ import random
 pygame.init()
 window_width, window_height = 800, 600
 display_surface = pygame.display.set_mode((window_width, window_height))
-pygame.display.set_caption('Shooter Shooter')
+pygame.display.set_caption('Pizza Blaster')
 
 # Settings
 mixer.music.load("src/sound/backgroundmusic.mp3")
 bg_image = pygame.image.load("src/images/spacebackground.png")
+logo = pygame.image.load("src/images/pizzaBlaster_logo.png")
 pygame.mixer.music.set_volume(0.3)
 mixer.music.play(-1)
 
@@ -106,6 +107,7 @@ def main():
         font = pygame.font.Font(None, 36)
         score_text = font.render(f'Score: {score}', True, 'gray100')
         display_surface.blit(score_text, (10, 10))
+        display_surface.blit(logo, (400, 15))
         pygame.display.update()
         clock.tick(30) 
     pygame.quit()
