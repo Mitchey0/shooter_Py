@@ -10,7 +10,7 @@ pygame.display.set_caption('Pizza Blaster')
 # Settings
 mixer.music.load("src/sound/backgroundmusic.mp3")
 bg_image = pygame.image.load("src/images/spacebackground.png")
-logo = pygame.image.load("src/images/pizzaBlaster_logo.png")
+logo = pygame.image.load("src/images/pb_logo.png")
 pygame.mixer.music.set_volume(0.3)
 mixer.music.play(-1)
 
