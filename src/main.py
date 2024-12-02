@@ -14,7 +14,7 @@ pygame.mixer.music.set_volume(0.3)
 mixer.music.play(-1)
 
 player_size = 50
-player_speed = 8
+player_speed = 6
 bullet_size = 5
 bullet_speed = 10
 enemy_size = 50
@@ -83,7 +83,7 @@ def main():
             enemy.move()
             if enemy.rect.top > window_height:
                 enemies.remove(enemy)
-                score += -3 # Increment sc ore for each enemy that goes off screen
+                score += -3 # Increment sc ore for each enemy that goes off screend 
 
         for bullet in bullets[:]:
             for enemy in enemies[:]:
@@ -97,9 +97,9 @@ def main():
 
         display_surface.fill('midnightblue')
         display_surface.blit(bg_image, (0,0))
-        pygame.draw.rect(display_surface, 'darkorange', player.rect)
+        pygame.draw.rect(display_surface, 'darkmagenta', player.rect)
         for bullet in bullets:
-            pygame.draw.rect(display_surface, 'mediumvioletred', bullet.rect)
+            pygame.draw.rect(display_surface, 'deeppink1', bullet.rect)
         for enemy in enemies:
             pygame.draw.rect(display_surface, 'mediumspringgreen', enemy.rect)
         
