@@ -70,7 +70,6 @@ def main():
             bullets.append(Bullet(player.rect.centerx, player.rect.top))
             bullet_sound = mixer.Sound('src/sound/pewpew.mp3')
             bullet_sound.play()
-            #bullet_sound.set_volume(0.5)
         
         for bullet in bullets[:]:
             bullet.move()
