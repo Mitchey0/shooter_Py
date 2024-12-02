@@ -9,6 +9,7 @@ pygame.display.set_caption('Shooter Shooter')
 
 # Settings
 mixer.music.load("src/sound/backgroundmusic.mp3")
+bg_image = pygame.image.load("src/images/spacebackground.png")
 pygame.mixer.music.set_volume(0.3)
 mixer.music.play(-1)
 
@@ -56,9 +57,6 @@ def main():
     while running:
         dt = clock.tick()
 
-        # Add 'if' loops for each button here
-        # Buttons: 'Play' 'Credit' 'Quit'
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -99,6 +97,7 @@ def main():
                     score += 5 # Increment score to destroy enemies
 
         display_surface.fill('midnightblue')
+        display_surface.blit(bg_image, (0,0))
         pygame.draw.rect(display_surface, 'darkorange', player.rect)
         for bullet in bullets:
             pygame.draw.rect(display_surface, 'mediumvioletred', bullet.rect)
@@ -110,7 +109,6 @@ def main():
         display_surface.blit(score_text, (10, 10))
         pygame.display.update()
         clock.tick(30) 
-
     pygame.quit()
 
 if __name__ == "__main__":
