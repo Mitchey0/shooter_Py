@@ -21,8 +21,7 @@ bullet_speed = 10
 enemy_size = 50
 enemy_speed = 4
 
-#Create a class for button :D
-#load images for buttons
+# Create option to reset score?
 
 class Player():
     def __init__(self):
