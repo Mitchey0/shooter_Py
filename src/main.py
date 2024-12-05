@@ -68,7 +68,7 @@ def main():
 
         if keys[pygame.K_SPACE]:
             bullets.append(Bullet(player.rect.centerx, player.rect.top))
-            bullet_sound = mixer.Sound('src/sound/pewpew.mp3')
+            bullet_sound = mixer.Sound('src/sound/blaster_shoot.mp3')
             bullet_sound.play()
         
         for bullet in bullets[:]:
@@ -88,7 +88,7 @@ def main():
         for bullet in bullets[:]:
             for enemy in enemies[:]:
                 if bullet.rect.colliderect(enemy.rect):
-                    direct_hit = mixer.Sound('src/sound/retrohurt.mp3')
+                    direct_hit = mixer.Sound('src/sound/enemy_DMG.mp3')
                     direct_hit.play()
                     direct_hit.set_volume(0.5)
                     bullets.remove(bullet)
